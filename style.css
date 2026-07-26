@@ -1,0 +1,201 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:#000;
+    color:#fff;
+}
+
+.page{
+    display:none;
+    width:100%;
+    height:100vh;
+    background:url("images/background.jpg") center center/cover no-repeat;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    position:relative;
+}
+
+.page.active{
+    display:flex;
+}
+
+.overlay{
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.55);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:20px;
+}
+
+h1{
+    font-size:55px;
+    color:#ff9ad5;
+    text-shadow:0 0 20px #ff4fa3;
+}
+
+h2{
+    font-size:38px;
+    margin-top:10px;
+}
+
+h3{
+    margin-top:15px;
+    color:#ffd6ec;
+}
+
+p{
+    margin:20px;
+    max-width:700px;
+    line-height:30px;
+    font-size:20px;
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:40px;
+    background:#ff4fa3;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 20px hotpink;
+}
+
+.slider{
+    width:300px;
+    height:400px;
+    position:relative;
+}
+
+.slide{
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:20px;
+    display:none;
+    box-shadow:0 0 25px hotpink;
+}
+
+.slide.active{
+    display:block;
+}
+
+.letter{
+    width:90%;
+    max-width:700px;
+    padding:25px;
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+}
+
+.teddy{
+    width:180px;
+    margin-top:20px;
+    animation:bounce 2s infinite;
+}
+
+.cake{
+    width:220px;
+    margin-top:20px;
+    animation:float 2s infinite;
+}
+
+.gift{
+    font-size:70px;
+    margin-top:20px;
+    cursor:pointer;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+}
+
+/* Floating Hearts */
+
+.hearts{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    color:pink;
+    font-size:20px;
+    animation:fly 8s linear infinite;
+}
+
+@keyframes fly{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-10vh);
+        opacity:0;
+    }
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+h1{
+font-size:35px;
+}
+
+h2{
+font-size:28px;
+}
+
+p{
+font-size:17px;
+line-height:26px;
+}
+
+.slider{
+width:250px;
+height:330px;
+}
+
+.teddy{
+width:140px;
+}
+
+.cake{
+width:180px;
+}
+
+button{
+font-size:16px;
+padding:12px 25px;
+}
+
+}
