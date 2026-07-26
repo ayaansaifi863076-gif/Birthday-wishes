@@ -1,65 +1,68 @@
-// ===== Elements =====
+// =========================
+// Birthday Website Script
+// =========================
+
 const music = document.getElementById("music");
 const pages = document.querySelectorAll(".page");
 const slides = document.querySelectorAll(".slide");
 const typing = document.getElementById("typing");
-const gift = document.querySelector(".gift");
 
 let currentSlide = 0;
+let typingIndex = 0;
 
-// ===== Birthday Letter =====
-const message = `Dear Alishba ❤️
+// Password
+function checkName(){
 
-Happy 15th Birthday! 🎂
+    const name = document.getElementById("nameInput").value.trim().toLowerCase();
 
-I hope your smile always stays beautiful.
+    if(name === "alishba"){
 
-May Allah bless you with happiness,
-success and endless smiles.
+        document.getElementById("lockScreen").style.display = "none";
 
-Thank you for being an amazing friend.
+    }else{
 
-Keep smiling...
-Keep shining...
+        document.getElementById("error").innerHTML =
+        "❤️ Ye surprise sirf Alishba ke liye hai.";
 
-Happy Birthday Once Again ❤️
+    }
 
-Forever,
-Ayaan ❤️`;
+}
 
-
-// ===== Start Website =====
+// Open Surprise
 function startSurprise(){
 
     music.play().catch(()=>{});
 
-    pages[0].classList.remove("active");
+    pages.forEach(page=>page.classList.remove("active"));
+
     pages[1].classList.add("active");
 
     startSlider();
 
 }
 
-
-// ===== Next Page =====
+// Next Page
 function nextPage(page){
 
-    pages.forEach(p=>p.classList.remove("active"));
+    pages.forEach(pageItem=>pageItem.classList.remove("active"));
 
     pages[page-1].classList.add("active");
 
     if(page===3){
-        typeWriter();
+
+        startTyping();
+
     }
 
     if(page===4){
+
         startFireworks();
+
     }
 
 }
 
-
-// ===== Photo Slider =====
+// Slider
 function startSlider(){
 
     setInterval(()=>{
@@ -69,7 +72,9 @@ function startSlider(){
         currentSlide++;
 
         if(currentSlide>=slides.length){
+
             currentSlide=0;
+
         }
 
         slides[currentSlide].classList.add("active");
@@ -78,37 +83,53 @@ function startSlider(){
 
 }
 
+// Letter
+const message = `Dear Alishba ❤️
 
-// ===== Typewriter =====
-let index = 0;
+Happy 15th Birthday!
 
-function typeWriter(){
+May Allah always keep you smiling.
 
-    typing.innerHTML="";
+Thank you for being such an amazing person.
 
-    let timer = setInterval(()=>{
+I wish all your dreams come true.
 
-        typing.innerHTML += message.charAt(index);
+Stay Happy.
+Stay Beautiful.
 
-        index++;
+Forever,
+Ayaan ❤️`;
 
-        if(index>=message.length){
+function startTyping(){
 
-            clearInterval(timer);
+typing.innerHTML="";
 
-        }
+typingIndex=0;
 
-    },40);
+const timer=setInterval(()=>{
+
+typing.innerHTML+=message.charAt(typingIndex);
+
+typingIndex++;
+
+if(typingIndex>=message.length){
+
+clearInterval(timer);
 
 }
 
+},40);
 
-// ===== Floating Hearts =====
+}
+// =========================
+// Floating Hearts
+// =========================
+
 const hearts = document.querySelector(".hearts");
 
 for(let i=0;i<80;i++){
 
-    let heart=document.createElement("div");
+    const heart=document.createElement("div");
 
     heart.className="heart";
 
@@ -116,95 +137,132 @@ for(let i=0;i<80;i++){
 
     heart.style.left=Math.random()*100+"vw";
 
-    heart.style.animationDelay=Math.random()*5+"s";
-
     heart.style.animationDuration=(5+Math.random()*5)+"s";
 
-    heart.style.fontSize=(15+Math.random()*20)+"px";
+    heart.style.animationDelay=Math.random()*5+"s";
+
+    heart.style.fontSize=(14+Math.random()*18)+"px";
 
     hearts.appendChild(heart);
 
 }
 
+// =========================
+// Gift Surprise
+// =========================
 
-// ===== Gift Surprise =====
+const gift=document.querySelector(".gift");
+
 gift.addEventListener("click",()=>{
 
     gift.innerHTML="💖";
 
-    alert("Happy 15th Birthday Alishba ❤️\n\nFrom Ayaan 💖");
+    alert(
+`🎉 Happy 15th Birthday Alishba ❤️
+
+May your life always be full of happiness,
+smiles and success.
+
+Forever,
+Ayaan ❤️`
+);
 
 });
 
+// =========================
+// Fireworks
+// =========================
 
-// ===== Fireworks =====
 function startFireworks(){
 
-    const canvas=document.getElementById("fireworks");
+const canvas=document.getElementById("fireworks");
 
-    const ctx=canvas.getContext("2d");
+const ctx=canvas.getContext("2d");
 
-    canvas.width=window.innerWidth;
-    canvas.height=window.innerHeight;
+canvas.width=window.innerWidth;
 
-    let particles=[];
+canvas.height=window.innerHeight;
 
-    function create(){
+let particles=[];
 
-        for(let i=0;i<8;i++){
+function create(){
 
-            particles.push({
+for(let i=0;i<8;i++){
 
-                x:Math.random()*canvas.width,
+particles.push({
 
-                y:Math.random()*canvas.height/2,
+x:Math.random()*canvas.width,
 
-                dx:(Math.random()-0.5)*8,
+y:Math.random()*canvas.height/2,
 
-                dy:(Math.random()-0.5)*8,
+dx:(Math.random()-0.5)*8,
 
-                life:60
+dy:(Math.random()-0.5)*8,
 
-            });
+life:70
 
-        }
-
-    }
-
-    function animate(){
-
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-
-        create();
-
-        particles.forEach((p,i)=>{
-
-            p.x+=p.dx;
-
-            p.y+=p.dy;
-
-            p.life--;
-
-            ctx.beginPath();
-
-            ctx.arc(p.x,p.y,3,0,Math.PI*2);
-
-            ctx.fillStyle="pink";
-
-            ctx.fill();
-
-            if(p.life<=0){
-
-                particles.splice(i,1);
-
-            }
-
-        });
-
-        requestAnimationFrame(animate);
-
-    }
-
-    animate();
+});
 
 }
+
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+create();
+
+particles.forEach((p,index)=>{
+
+p.x+=p.dx;
+
+p.y+=p.dy;
+
+p.life--;
+
+ctx.beginPath();
+
+ctx.arc(p.x,p.y,3,0,Math.PI*2);
+
+ctx.fillStyle="#ff8ecf";
+
+ctx.fill();
+
+if(p.life<=0){
+
+particles.splice(index,1);
+
+}
+
+});
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+}
+
+// =========================
+// Window Resize
+// =========================
+
+window.addEventListener("resize",()=>{
+
+const canvas=document.getElementById("fireworks");
+
+if(canvas){
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+}
+
+});
+
+// =========================
+// End
+// =========================
