@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 15th Birthday Alishba ❤️</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Music -->
+    <audio id="music" loop>
+        <source src="music/die_with_a_smile.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Floating Hearts -->
+    <div class="hearts"></div>
+
+    <!-- PAGE 1 -->
+    <section id="page1" class="page active">
+
+        <div class="overlay">
+
+            <h3>From Ayaan ❤️</h3>
+
+            <h1>Happy 15th Birthday</h1>
+
+            <h2>Alishba 💖</h2>
+
+            <p>
+                Today is your special day...
+                I made a little surprise just for you.
+            </p>
+
+            <button onclick="startSurprise()">
+                Open Surprise 🎁
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PAGE 2 -->
+    <section id="page2" class="page">
+
+        <h1>Our Beautiful Memories 📸</h1>
+
+        <div class="slider">
+
+            <img src="images/photo1.jpg" class="slide active">
+            <img src="images/photo2.jpg" class="slide">
+            <img src="images/photo3.jpg" class="slide">
+            <img src="images/photo4.jpg" class="slide">
+            <img src="images/photo5.jpg" class="slide">
+            <img src="images/photo6.jpg" class="slide">
+
+        </div>
+
+        <button onclick="nextPage(3)">Next ❤️</button>
+
+    </section>
+
+    <!-- PAGE 3 -->
+    <section id="page3" class="page">
+
+        <h1>A Letter For You 💌</h1>
+
+        <div class="letter">
+            <p id="typing"></p>
+        </div>
+
+        <button onclick="nextPage(4)">
+            Final Surprise 🎂
+        </button>
+
+    </section>
+
+    <!-- PAGE 4 -->
+    <section id="page4" class="page">
+
+        <h1>🎉 Happy 15th Birthday 🎉</h1>
+
+        <h2>Alishba ❤️</h2>
+
+        <img src="images/teddy.png" class="teddy">
+
+        <img src="images/cake.png" class="cake">
+
+        <div class="gift">
+            🎁
+        </div>
+
+        <h3>Forever From Ayaan ❤️</h3>
+
+        <canvas id="fireworks"></canvas>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
