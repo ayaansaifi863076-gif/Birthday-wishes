@@ -10,6 +10,23 @@
 
 <body>
 
+    <!-- Loading Screen -->
+    <div id="loading">
+        <h1>🎂 Preparing Your Surprise...</h1>
+    </div>
+
+    <!-- Password Screen -->
+    <div id="lockScreen">
+        <h1>💖</h1>
+        <h2>This Surprise is Only For Alishba</h2>
+
+        <input type="text" id="nameInput" placeholder="Enter Your Name">
+
+        <button onclick="checkName()">Open Surprise</button>
+
+        <p id="error"></p>
+    </div>
+
     <!-- Background Music -->
     <audio id="music" loop>
         <source src="music/die_with_a_smile.mp3" type="audio/mpeg">
@@ -30,8 +47,8 @@
             <h2>Alishba 💖</h2>
 
             <p>
-                Today is your special day...
-                I made a little surprise just for you.
+                Today is your special day...<br>
+                I made this little surprise only for you. ❤️
             </p>
 
             <button onclick="startSurprise()">
@@ -48,14 +65,12 @@
         <h1>Our Beautiful Memories 📸</h1>
 
         <div class="slider">
-
             <img src="images/photo1.jpg" class="slide active">
             <img src="images/photo2.jpg" class="slide">
             <img src="images/photo3.jpg" class="slide">
             <img src="images/photo4.jpg" class="slide">
             <img src="images/photo5.jpg" class="slide">
             <img src="images/photo6.jpg" class="slide">
-
         </div>
 
         <button onclick="nextPage(3)">Next ❤️</button>
@@ -80,21 +95,25 @@
     <!-- PAGE 4 -->
     <section id="page4" class="page">
 
-        <h1>🎉 Happy 15th Birthday 🎉</h1>
+        <div class="overlay">
 
-        <h2>Alishba ❤️</h2>
+            <h1>🎉 Happy 15th Birthday 🎉</h1>
 
-        <img src="images/teddy.png" class="teddy">
+            <h2>Alishba ❤️</h2>
 
-        <img src="images/cake.png" class="cake">
+            <img src="images/teddy.png" class="teddy">
 
-        <div class="gift">
-            🎁
+            <img src="images/cake.png" class="cake">
+
+            <div class="gift">
+                🎁
+            </div>
+
+            <h3>Forever From Ayaan ❤️</h3>
+
+            <canvas id="fireworks"></canvas>
+
         </div>
-
-        <h3>Forever From Ayaan ❤️</h3>
-
-        <canvas id="fireworks"></canvas>
 
     </section>
 
